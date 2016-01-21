@@ -74,6 +74,11 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
-
-
++ (UIButton *)createBackItem
+{
+    UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(0.0, 0.0, 50.0, 40.0)];
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [button setImage:[UIImage imageNamed:@"setting_back"] forState:UIControlStateNormal];
+    return button;
+}
 @end

@@ -19,8 +19,10 @@
 #import "SXSChangePayPasswordController.h"
 #import "SXSChangeLogINPasswordViewController.h"
 #import "UIView+Extension.h"
+#import "PECropViewController.h"//照片截取
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,SXSSettingSwitchCellDelegate>
+//#import "SXSOwnerMessageViewController.h"//消息页面暂放
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,SXSSettingSwitchCellDelegate, PECropViewControllerDelegate>
 @property (nonatomic,weak)UITableView * settingTableView;
 @property(nonatomic,strong)NSArray *allItems;//cell的元素
 @property(nonatomic,strong)NSArray *allItems1;//cell的元素
@@ -31,6 +33,9 @@
 @property (nonatomic,weak)UIImageView * customerImage;//客服电话
 @property (nonatomic,weak)UIButton * investmentButton;//立即投资按钮
 @property (nonatomic,assign)BOOL ifSettingPassword;//是否设置过登陆密码
+
+@property (nonatomic) UIPopoverController *popover;
+@property(nonatomic,strong)UIImage * tmpHeadImage;
 @end
 
 @implementation ViewController
@@ -81,6 +86,17 @@
     self.allItems1 = @[@"检查版本更新",@"关于",@"更改绑定手机号"];
     
     [self customHeadAndBottomView];
+    [self setNavBackItem];
+}
+- (void)setNavBackItem
+{
+    UIButton * leftItem = [SXSSetTool createBackItem];
+    [leftItem addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftItem];
+}
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 //头部和底部视图
 - (void)customHeadAndBottomView
@@ -90,7 +106,8 @@
 
     UIButton * head = [UIButton new];
     head.frame = CGRectMake(10.0, 45, 60.0, 60.0);
-    
+    head.contentMode = UIViewContentModeScaleAspectFill;//内容适应格式
+    head.adjustsImageWhenHighlighted = NO;//取消按钮点击时候高亮
     head.backgroundColor = [UIColor yellowColor];
     head.layer.borderWidth = 0.5;
     head.layer.cornerRadius = 30.0;
@@ -99,7 +116,7 @@
     NSData * headData = [[NSUserDefaults standardUserDefaults] valueForKey:@"headImage"];
     UIImage * headImage = [UIImage imageWithData:headData];
     [head setBackgroundImage:headImage forState:UIControlStateNormal];
-
+    
     
     [head addTarget:self action:@selector(iconTapClick) forControlEvents:UIControlEventTouchUpInside];
     [headView addSubview:head];
@@ -148,7 +165,6 @@
 
     //尾视图
     UIView * footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, UI_SCREEN_WIDTH,150)];
-    footerView.backgroundColor = [UIColor greenColor];
     UIImageView * customerTempImage = [[UIImageView alloc]init];
 #warning 少图片
     customerTempImage.backgroundColor = [UIColor redColor];
@@ -186,60 +202,95 @@
     UIActionSheet * iconSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册中选择", nil];
     [iconSheet showInView:self.view];
 }
+#pragma mark - UIActionSheetDelegate methods
+//打开照相机或者相册
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        [self showCamera];
+    }
+    else if(buttonIndex == 1)
+    {
+        [self openPhotoAlbum];
+    }
+    else
+    {
+        [actionSheet dismissWithClickedButtonIndex:2 animated:YES];
+    }
+}
+#pragma mark - Private methods
+- (void)showCamera
+{
+    UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+    controller.delegate = self;
+    controller.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:controller animated:YES completion:NULL];
+}
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)openPhotoAlbum
 {
-        UIImagePickerController * picker = [[UIImagePickerController alloc]init];
-        picker.delegate = self;
-        //点击的是头像
-        if(buttonIndex == 0)
-        {
-            //拍照
-            //判断照相机是否可用
-            if([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront])
-            {
-                picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            }
-            [self presentViewController:picker animated:YES completion:nil];
-        }else if(buttonIndex == 1)
-        {
-            //相册
-            if([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront])
-            {
-                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            }
-            
-            [self presentViewController:picker animated:YES completion:nil];
-        }else
-        {
-            return;
-        }
+    UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+    controller.delegate = self;
+    controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:controller animated:YES completion:NULL];
 }
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+#pragma mark - UIImagePickerControllerDelegate methods
+/*
+ Open PECropViewController automattically when image selected.
+ */
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    //获取图片
-    UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImage * headImage = [SXSSetTool thumbnailImage:CGSizeMake(30.0, 30.0) withImage:image];
-    [self.headIcon setBackgroundImage:headImage forState:UIControlStateNormal];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [self.headIcon setBackgroundImage:image forState:UIControlStateNormal];
+    self.tmpHeadImage = image;
     
-    
-    NSData * iconUrl = UIImageJPEGRepresentation(image,  0.25);
-    //把头像存到本地
-    NSUserDefaults * ud = [NSUserDefaults standardUserDefaults];
-    [ud setObject:iconUrl forKey:@"headImage"];
-    [ud synchronize];
-
-    //转为base64字符串
-    NSString * headIcon = [iconUrl base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
-    
-#warning 上传数据
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [self openEditor:nil];
+    }];
 }
+#pragma mark - Action methods
+
+- (void)openEditor:(id)sender
+{
+    PECropViewController *controller = [[PECropViewController alloc] init];
+    controller.delegate = self;
+    controller.image = self.tmpHeadImage;
+    UIImage *image = self.tmpHeadImage;
+    CGFloat width = image.size.width;
+    CGFloat height = image.size.height;
+    CGFloat length = MIN(width, height);
+    controller.imageCropRect = CGRectMake((width - length) / 2,
+                                          (height - length) / 2,
+                                          length,
+                                          length);
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:YES completion:NULL];
+}
+#pragma mark - PECropViewControllerDelegate methods
+
+- (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage transform:(CGAffineTransform)transform cropRect:(CGRect)cropRect
+{
+        NSData * iconUrl = UIImageJPEGRepresentation(croppedImage,  0.25);
+        //把头像存到本地
+        NSUserDefaults * ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:iconUrl forKey:@"headImage"];
+        [ud synchronize];
+    
+        //转为base64字符串
+        NSString * headIcon = [iconUrl base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+        
+    #warning 上传数据
+
+    [controller dismissViewControllerAnimated:YES completion:NULL];
+    [self.headIcon setBackgroundImage:croppedImage forState:UIControlStateNormal];
+}
+- (void)cropViewControllerDidCancel:(PECropViewController *)controller
+{
+    [controller dismissViewControllerAnimated:YES completion:NULL];
+}
+
 #pragma mark-tableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -337,6 +388,10 @@
         if(indexPath.row == 0)
         {
             [self updateSXSApp];
+        }
+        if (indexPath.row == 1) {
+//            SXSOwnerMessageViewController * ownerMessageViewController = [[SXSOwnerMessageViewController alloc]init];
+//            [self.navigationController pushViewController:ownerMessageViewController animated:YES];
         }
         if (indexPath.row == 2) {
             SXSChangeBindingIphoneViewController *  changeBindingIphoneViewController = [[SXSChangeBindingIphoneViewController alloc]init];

@@ -15,22 +15,40 @@
 
 @interface SXSSetTool : NSObject
 /**
- *  <#Description#>
+ *  根据颜色创建一个图片
  *
- *  @param color <#color description#>
- *  @param frame <#frame description#>
+ *  @param color 颜色
+ *  @param frame 图片大小
  *
- *  @return <#return value description#>
+ *  @return 产生的图片
  */
 + (UIImage *)imageWithColor:(UIColor *)color forFrame:(CGRect)frame;
 /**
- *  <#Description#>
+ *  截取图片的某一部分
  *
- *  @param targetSize <#targetSize description#>
- *  @param image      <#image description#>
+ *  @param targetSize 区域大小
+ *  @param image      图片对象
  *
- *  @return <#return value description#>
+ *  @return 生成的图片
  */
 + (UIImage*)thumbnailImage:(CGSize)targetSize withImage:(UIImage*)image;
 
+/**
+ *  快速创建一个返回按钮
+ *
+ *  @return 返回按钮
+ */
++ (UIButton *)createBackItem;
+
 @end
+
+
+
+
+
+
+
+
+
+
+

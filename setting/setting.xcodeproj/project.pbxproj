@@ -41,11 +41,18 @@
 		6F9EDAF31C4E6C7200228B60 /* SXSSettingNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EDAEC1C4E6C7200228B60 /* SXSSettingNormalCell.m */; };
 		6F9EDAF41C4E6C7200228B60 /* SXSSettingHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EDAEE1C4E6C7200228B60 /* SXSSettingHeadCell.m */; };
 		6F9EDAF51C4E6C7200228B60 /* SXSBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EDAF01C4E6C7200228B60 /* SXSBaseTableViewCell.m */; };
-		6F9EDAFE1C4E6C8300228B60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EDAF61C4E6C8300228B60 /* ViewController.m */; };
 		6F9EDAFF1C4E6C8300228B60 /* SXSSetPayPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EDAF81C4E6C8300228B60 /* SXSSetPayPasswordController.m */; };
 		6F9EDB001C4E6C8300228B60 /* SXSChangeBindingIphoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EDAFA1C4E6C8300228B60 /* SXSChangeBindingIphoneViewController.m */; };
 		6F9EDB011C4E6C8300228B60 /* SXSChangeBindingIphoneStepTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EDAFC1C4E6C8300228B60 /* SXSChangeBindingIphoneStepTwoViewController.m */; };
 		6F9EDB041C4E6E4F00228B60 /* SXSSetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EDB031C4E6E4F00228B60 /* SXSSetTool.m */; };
+		6FD543A11C50AFD7000173C8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD543A01C50AFD7000173C8 /* ViewController.m */; };
+		6FD543B21C50B09A000173C8 /* PECropRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD543A71C50B09A000173C8 /* PECropRectView.m */; };
+		6FD543B31C50B09A000173C8 /* PECropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD543A91C50B09A000173C8 /* PECropView.m */; };
+		6FD543B41C50B09A000173C8 /* PECropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD543AB1C50B09A000173C8 /* PECropViewController.m */; };
+		6FD543B51C50B09A000173C8 /* PEResizeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD543AD1C50B09A000173C8 /* PEResizeControl.m */; };
+		6FD543B61C50B09A000173C8 /* PEPhotoCropEditor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6FD543AF1C50B09A000173C8 /* PEPhotoCropEditor.bundle */; };
+		6FD543B71C50B09A000173C8 /* UIImage+PECrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD543B11C50B09A000173C8 /* UIImage+PECrop.m */; };
+		6FD543B91C50B6D4000173C8 /* setting_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD543B81C50B6D4000173C8 /* setting_back@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,7 +138,6 @@
 		6F9EDAEF1C4E6C7200228B60 /* SXSSettingHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSSettingHeadCell.h; sourceTree = "<group>"; };
 		6F9EDAF01C4E6C7200228B60 /* SXSBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSBaseTableViewCell.m; sourceTree = "<group>"; };
 		6F9EDAF11C4E6C7200228B60 /* SXSBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSBaseTableViewCell.h; sourceTree = "<group>"; };
-		6F9EDAF61C4E6C8300228B60 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6F9EDAF71C4E6C8300228B60 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6F9EDAF81C4E6C8300228B60 /* SXSSetPayPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSSetPayPasswordController.m; sourceTree = "<group>"; };
 		6F9EDAF91C4E6C8300228B60 /* SXSSetPayPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSSetPayPasswordController.h; sourceTree = "<group>"; };
@@ -141,6 +147,19 @@
 		6F9EDAFD1C4E6C8300228B60 /* SXSChangeBindingIphoneStepTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSChangeBindingIphoneStepTwoViewController.h; sourceTree = "<group>"; };
 		6F9EDB021C4E6E4F00228B60 /* SXSSetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSSetTool.h; sourceTree = "<group>"; };
 		6F9EDB031C4E6E4F00228B60 /* SXSSetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSSetTool.m; sourceTree = "<group>"; };
+		6FD543A01C50AFD7000173C8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6FD543A61C50B09A000173C8 /* PECropRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropRectView.h; sourceTree = "<group>"; };
+		6FD543A71C50B09A000173C8 /* PECropRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PECropRectView.m; sourceTree = "<group>"; };
+		6FD543A81C50B09A000173C8 /* PECropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropView.h; sourceTree = "<group>"; };
+		6FD543A91C50B09A000173C8 /* PECropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PECropView.m; sourceTree = "<group>"; };
+		6FD543AA1C50B09A000173C8 /* PECropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropViewController.h; sourceTree = "<group>"; };
+		6FD543AB1C50B09A000173C8 /* PECropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PECropViewController.m; sourceTree = "<group>"; };
+		6FD543AC1C50B09A000173C8 /* PEResizeControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEResizeControl.h; sourceTree = "<group>"; };
+		6FD543AD1C50B09A000173C8 /* PEResizeControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEResizeControl.m; sourceTree = "<group>"; };
+		6FD543AF1C50B09A000173C8 /* PEPhotoCropEditor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PEPhotoCropEditor.bundle; sourceTree = "<group>"; };
+		6FD543B01C50B09A000173C8 /* UIImage+PECrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PECrop.h"; sourceTree = "<group>"; };
+		6FD543B11C50B09A000173C8 /* UIImage+PECrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PECrop.m"; sourceTree = "<group>"; };
+		6FD543B81C50B6D4000173C8 /* setting_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting_back@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +190,7 @@
 		6F53008B1C4FB5300066B045 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				6FD543B81C50B6D4000173C8 /* setting_back@2x.png */,
 				6F53008C1C4FB5480066B045 /* xgm.png */,
 				6F53008E1C4FB5750066B045 /* on.png */,
 				6F5300901C4FB5930066B045 /* off.png */,
@@ -247,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				6F9EDAF71C4E6C8300228B60 /* ViewController.h */,
-				6F9EDAF61C4E6C8300228B60 /* ViewController.m */,
+				6FD543A01C50AFD7000173C8 /* ViewController.m */,
 				6F9EDAE31C4E6C5600228B60 /* GestureViewController.h */,
 				6F9EDAE21C4E6C5600228B60 /* GestureViewController.m */,
 				6F9EDAF91C4E6C8300228B60 /* SXSSetPayPasswordController.h */,
@@ -329,6 +349,7 @@
 		6F9EDAD71C4E65DA00228B60 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				6FD543A51C50B09A000173C8 /* PEPhotoCropEditor */,
 				6F9EDADF1C4E6C5600228B60 /* PasswordButton.h */,
 				6F9EDADE1C4E6C5600228B60 /* PasswordButton.m */,
 				6F9EDAE11C4E6C5600228B60 /* PasswordAccount.h */,
@@ -343,6 +364,33 @@
 				6F5300801C4F98E40066B045 /* MBSwitch.m */,
 			);
 			path = tool;
+			sourceTree = "<group>";
+		};
+		6FD543A51C50B09A000173C8 /* PEPhotoCropEditor */ = {
+			isa = PBXGroup;
+			children = (
+				6FD543A61C50B09A000173C8 /* PECropRectView.h */,
+				6FD543A71C50B09A000173C8 /* PECropRectView.m */,
+				6FD543A81C50B09A000173C8 /* PECropView.h */,
+				6FD543A91C50B09A000173C8 /* PECropView.m */,
+				6FD543AA1C50B09A000173C8 /* PECropViewController.h */,
+				6FD543AB1C50B09A000173C8 /* PECropViewController.m */,
+				6FD543AC1C50B09A000173C8 /* PEResizeControl.h */,
+				6FD543AD1C50B09A000173C8 /* PEResizeControl.m */,
+				6FD543AE1C50B09A000173C8 /* Resources */,
+				6FD543B01C50B09A000173C8 /* UIImage+PECrop.h */,
+				6FD543B11C50B09A000173C8 /* UIImage+PECrop.m */,
+			);
+			name = PEPhotoCropEditor;
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		6FD543AE1C50B09A000173C8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6FD543AF1C50B09A000173C8 /* PEPhotoCropEditor.bundle */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,9 +498,11 @@
 			files = (
 				6F56FE6C1C4DDBBA003412AC /* LaunchScreen.storyboard in Resources */,
 				6F53008D1C4FB5480066B045 /* xgm.png in Resources */,
+				6FD543B61C50B09A000173C8 /* PEPhotoCropEditor.bundle in Resources */,
 				6F5300911C4FB5930066B045 /* off.png in Resources */,
 				6F53008F1C4FB5750066B045 /* on.png in Resources */,
 				6F56FE691C4DDBBA003412AC /* Assets.xcassets in Resources */,
+				6FD543B91C50B6D4000173C8 /* setting_back@2x.png in Resources */,
 				6F56FE671C4DDBBA003412AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +533,7 @@
 				6F53006B1C4F74760066B045 /* SXSSetCardCountDownCell.m in Sources */,
 				6F5300551C4F21170066B045 /* PooCodeView.m in Sources */,
 				6F9EDAF21C4E6C7200228B60 /* SXSSettingSwitchCell.m in Sources */,
+				6FD543B41C50B09A000173C8 /* PECropViewController.m in Sources */,
 				6F9EDAFF1C4E6C8300228B60 /* SXSSetPayPasswordController.m in Sources */,
 				6F5300751C4F75240066B045 /* SXSChooseBankViewController.m in Sources */,
 				6F9EDAF51C4E6C7200228B60 /* SXSBaseTableViewCell.m in Sources */,
@@ -493,9 +544,9 @@
 				6F53006F1C4F74840066B045 /* SXSSetCardViewController.m in Sources */,
 				6F53006C1C4F74760066B045 /* SXSSetCardNormalCell.m in Sources */,
 				6F53005C1C4F24640066B045 /* SXSUserCertifyViewController.m in Sources */,
+				6FD543B71C50B09A000173C8 /* UIImage+PECrop.m in Sources */,
 				6F9EDAF31C4E6C7200228B60 /* SXSSettingNormalCell.m in Sources */,
 				6F5300821C4F98E40066B045 /* MBSwitch.m in Sources */,
-				6F9EDAFE1C4E6C8300228B60 /* ViewController.m in Sources */,
 				6F9EDAE61C4E6C5600228B60 /* PasswordButton.m in Sources */,
 				6F9EDAE91C4E6C5600228B60 /* GestureView.m in Sources */,
 				6F53007A1C4F754D0066B045 /* SXSCardListcell.m in Sources */,
@@ -503,12 +554,16 @@
 				6F53007B1C4F754D0066B045 /* SXSChooseBankCardCell.m in Sources */,
 				6F9EDADD1C4E6C3E00228B60 /* NSString+pass.m in Sources */,
 				6F9EDAF41C4E6C7200228B60 /* SXSSettingHeadCell.m in Sources */,
+				6FD543A11C50AFD7000173C8 /* ViewController.m in Sources */,
 				6F56FE611C4DDBBA003412AC /* AppDelegate.m in Sources */,
+				6FD543B51C50B09A000173C8 /* PEResizeControl.m in Sources */,
 				6F56FE5E1C4DDBBA003412AC /* main.m in Sources */,
 				6F5300631C4F68980066B045 /* SXSChangeLogINPasswordViewController.m in Sources */,
 				6F9EDB011C4E6C8300228B60 /* SXSChangeBindingIphoneStepTwoViewController.m in Sources */,
+				6FD543B21C50B09A000173C8 /* PECropRectView.m in Sources */,
 				6F9EDB041C4E6E4F00228B60 /* SXSSetTool.m in Sources */,
 				6F5300591C4F21390066B045 /* UIButton+countDown.m in Sources */,
+				6FD543B31C50B09A000173C8 /* PECropView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
