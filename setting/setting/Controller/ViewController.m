@@ -20,8 +20,6 @@
 #import "SXSChangeLogINPasswordViewController.h"
 #import "UIView+Extension.h"
 
-
-
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,SXSSettingSwitchCellDelegate>
 @property (nonatomic,weak)UITableView * settingTableView;
 @property(nonatomic,strong)NSArray *allItems;//cell的元素
